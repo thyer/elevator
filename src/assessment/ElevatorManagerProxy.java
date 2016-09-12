@@ -1,14 +1,16 @@
 package assessment;
 
 import elevator.Elevator;
+import elevator.IElevator;
 import elevator.IElevatorManager;
 import people.IElevatorTrip;
 
 public class ElevatorManagerProxy {
 	private IElevator[] elevators;
 	private IElevatorManager elevatorManager;
-	ElevatorManagerProxy(IElevatorManager em){
+	ElevatorManagerProxy(IElevatorManager em, Difficulty d){
 		elevatorManager = em;
+		elevators = new Elevator[d.getElevatorCount()];
 		elevatorManager.setElevators(elevators);
 	}
 

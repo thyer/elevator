@@ -1,6 +1,5 @@
 package elevator;
 
-import assessment.IElevator;
 import people.IElevatorTrip;
 
 public class ElevatorManager implements IElevatorManager{

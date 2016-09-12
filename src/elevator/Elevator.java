@@ -1,5 +1,5 @@
 package elevator;
 
-public class Elevator {
+public class Elevator implements IElevator{
 
 }

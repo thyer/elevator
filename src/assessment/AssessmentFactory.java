@@ -3,6 +3,7 @@ package assessment;
 import java.util.ArrayList;
 import java.util.List;
 
+import elevator.ElevatorManagerFactory;
 import elevator.IElevatorManager;
 import people.IPerson;
 import people.IPersonManager;
@@ -24,7 +25,7 @@ public class AssessmentFactory {
 	
 	private void loadPersonManager(IElevatorManager em) throws Exception{
 		IPerson[] people = loadPeople();
-		ElevatorManagerProxy emp = new ElevatorManagerProxy(em);
+		ElevatorManagerProxy emp = new ElevatorManagerProxy(em, difficulty);
 		personManager = new PersonManager(emp, people);
 	}
 	

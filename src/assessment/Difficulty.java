@@ -2,7 +2,6 @@ package assessment;
 
 import people.EasyPerson;
 import people.HardPerson;
-import people.IPerson;
 import people.ModeratePerson;
 
 public enum Difficulty {
@@ -25,5 +24,12 @@ public enum Difficulty {
 	
 	public Class<?> getPersonClass(){
 		return this.personClass;
+	}
+
+	public int getElevatorCount() {
+		int ret = 1;
+		ret += this.count >= 100 ? 1 : 0;
+		ret += this.count >= 500 ? 1 : 0;
+		return ret;
 	}
 }
