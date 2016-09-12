@@ -1,6 +1,6 @@
 package people;
 
-import elevator.AbstractElevatorManager;
+import assessment.ElevatorManagerProxy;
 
 public class PersonManager implements IPersonManager{
 	
@@ -9,11 +9,11 @@ public class PersonManager implements IPersonManager{
 	private final static double CLOSE = 1439.99; // 11:59PM
 	
 	private double currentTime;
-	private AbstractElevatorManager elevatorManager;
+	private ElevatorManagerProxy elevatorManager;
 	private IPerson[] people;
 	private ISchedule schedule;
 	
-	public PersonManager(AbstractElevatorManager em, IPerson[] p) throws Exception{
+	public PersonManager(ElevatorManagerProxy em, IPerson[] p) throws Exception{
 		currentTime = BEGIN;
 		elevatorManager = em;
 		people = p;
@@ -27,7 +27,7 @@ public class PersonManager implements IPersonManager{
 	}
 	
 	private void issueRequests(){
-		for(IRequest r : schedule.getRequestsAtTime(currentTime)){
+		for(IElevatorTrip r : schedule.getRequestsAtTime(currentTime)){
 			elevatorManager.handleRequest(r);
 		}
 	}

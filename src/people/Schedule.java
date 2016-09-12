@@ -14,7 +14,7 @@ public class Schedule implements ISchedule{
 		
 	}
 	@Override
-	public IRequest[] getRequestsAtTime(double currentTime) {
+	public IElevatorTrip[] getRequestsAtTime(double currentTime) {
 		return null;
 	}
 

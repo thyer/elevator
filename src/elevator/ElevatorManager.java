@@ -1,11 +1,18 @@
 package elevator;
 
-import people.IRequest;
+import assessment.IElevator;
+import people.IElevatorTrip;
 
-public class ElevatorManager extends AbstractElevatorManager{
+public class ElevatorManager implements IElevatorManager{
 
 	@Override
-	public void handleRequest(IRequest r) {
+	public void handleRequest(IElevatorTrip r) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setElevators(IElevator[] elevators) {
 		// TODO Auto-generated method stub
 		
 	}
