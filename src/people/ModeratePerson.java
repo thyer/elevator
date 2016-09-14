@@ -3,8 +3,7 @@ package people;
 public class ModeratePerson extends DifficultyPerson{
 
 	@Override
-	protected IPerson generateRandomPerson() {
-		return null;
+	protected void generateRandomPerson() {
 		
 	}
 

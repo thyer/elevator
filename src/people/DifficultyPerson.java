@@ -4,14 +4,15 @@ public abstract class DifficultyPerson implements IPerson{
 	protected IPerson person;
 	
 	public DifficultyPerson(){
-		person = generateRandomPerson();
+		generateRandomPerson();
 	}
 	
 	public IPerson getPerson(){
 		return person;
 	}
 	
-	protected abstract IPerson generateRandomPerson();
+	// should set the person field to a random person of the chosen type
+	protected abstract void generateRandomPerson();
 	protected abstract void planArrival();
 	protected abstract void planDeparture();
 

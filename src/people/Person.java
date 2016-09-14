@@ -20,7 +20,7 @@ public class Person implements IPerson{
 
 	@Override
 	public ElevatorTrip[] getTrips() {
-		return (ElevatorTrip[]) elevatorTrips.toArray();
+		return elevatorTrips.toArray(new ElevatorTrip[elevatorTrips.size()]);
 	}
 	
 	@Override
@@ -36,5 +36,7 @@ public class Person implements IPerson{
 	public void setKgWeight(int kgWeight){
 		this.kgWeight = kgWeight;
 	}
+	
+	
 
 }

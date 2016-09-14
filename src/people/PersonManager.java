@@ -1,14 +1,16 @@
 package people;
 
+import java.text.DecimalFormat;
+
 import assessment.ElevatorManagerProxy;
 
 public class PersonManager implements IPersonManager{
 	
-	private final static double TIME_INTERVAL = 0.05; // every three seconds
-	private final static double BEGIN = 0.00; // 12:00AM
-	private final static double CLOSE = 1439.99; // 11:59PM
+	private final static int TIME_INTERVAL = 1; // every one second
+	private final static int BEGIN = 0; // 12:00AM
+	private final static int CLOSE = 86399; // 11:59PM
 	
-	private double currentTime;
+	private int currentTime;
 	private ElevatorManagerProxy elevatorManager;
 	private IPerson[] people;
 	private ISchedule schedule;
@@ -27,7 +29,13 @@ public class PersonManager implements IPersonManager{
 	}
 	
 	private void issueRequests(){
-		for(IElevatorTrip r : schedule.getRequestsAtTime(currentTime)){
+		IElevatorTrip[] trips = schedule.getRequestsAtTime(currentTime);
+		if(trips.length == 0){
+			return;
+		}
+		String time = new DecimalFormat("#.##").format(currentTime);
+		System.out.println("At time " + time + " there were " + trips.length + " trips");
+		for(IElevatorTrip r : trips){
 			elevatorManager.handleRequest(r);
 		}
 	}

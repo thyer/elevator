@@ -3,18 +3,17 @@ package assessment;
 import java.util.ArrayList;
 import java.util.List;
 
-import elevator.ElevatorManagerFactory;
 import elevator.IElevatorManager;
 import people.IPerson;
 import people.IPersonManager;
 import people.PersonFactory;
 import people.PersonManager;
 
-public class AssessmentFactory {
+public class PersonManagerFactory {
 	private Difficulty difficulty;
 	private IPersonManager personManager = null;
 	
-	AssessmentFactory(Difficulty d, IElevatorManager em) throws Exception{
+	PersonManagerFactory(Difficulty d, IElevatorManager em) throws Exception{
 		difficulty = d;
 		loadPersonManager(em);
 	}
@@ -35,7 +34,7 @@ public class AssessmentFactory {
 		for(int i = 0; i < difficulty.getCount(); ++i){
 			people.add(pf.getRandomPerson());
 		}
-		return (IPerson[]) people.toArray();
+		return people.toArray(new IPerson[people.size()]);
 	}
 
 }

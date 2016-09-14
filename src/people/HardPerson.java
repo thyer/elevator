@@ -3,9 +3,7 @@ package people;
 public class HardPerson extends DifficultyPerson{
 
 	@Override
-	protected IPerson generateRandomPerson() {
-		// TODO Auto-generated method stub
-		return null;
+	protected void generateRandomPerson() {
 		
 	}
 

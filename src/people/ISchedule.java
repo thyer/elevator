@@ -2,5 +2,5 @@ package people;
 
 public interface ISchedule {
 	public abstract void initSchedule(IPerson[] p) throws Exception;
-	public abstract IElevatorTrip[] getRequestsAtTime(double currentTime);
+	public abstract IElevatorTrip[] getRequestsAtTime(int currentTime);
 }

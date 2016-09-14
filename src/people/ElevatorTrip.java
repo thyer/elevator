@@ -1,24 +1,27 @@
 package people;
 
-public class ElevatorTrip {
-	private double time;
+public class ElevatorTrip implements IElevatorTrip{
+	private int time;
 	private int departureFloor;
 	private int arrivalFloor;
 
-	public ElevatorTrip(double time, int departureFloor, int arrivalFloor) {
+	public ElevatorTrip(int time, int departureFloor, int arrivalFloor) {
 		this.time = time;
 		this.departureFloor = departureFloor;
 		this.arrivalFloor = arrivalFloor;
 	}
 
-	public double getTime() {
+	@Override
+	public int getTime() {
 		return time;
 	}
 
+	@Override
 	public int getDepartureFloor() {
 		return departureFloor;
 	}
 
+	@Override
 	public int getArrivalFloor() {
 		return arrivalFloor;
 	}

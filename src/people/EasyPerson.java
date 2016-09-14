@@ -6,12 +6,11 @@ public class EasyPerson extends DifficultyPerson{
 	private final static int MAX_FLOOR = 5;
 
 	@Override
-	protected IPerson generateRandomPerson() {
+	protected void generateRandomPerson() {
 		Random rand = new Random();
-		Person retPerson = new Person(rand.nextInt(MAX_FLOOR) + 1);
+		person = new Person(rand.nextInt(MAX_FLOOR) + 1);
 		planArrival();
 		planDeparture();
-		return retPerson;
 		
 	}
 
@@ -27,8 +26,8 @@ public class EasyPerson extends DifficultyPerson{
 
 	@Override
 	protected void planArrival() {
-		double arrivalTime = 420; // earliest entrance at 7AM
-		arrivalTime += new Random().nextInt(1200) / 10; // latest entrance at 9AM
+		int arrivalTime = 25200; // earliest entrance at 7AM
+		arrivalTime += new Random().nextInt(7200); // latest entrance at 9AM
 		ElevatorTrip et = new ElevatorTrip(arrivalTime, 0, getFloor());
 		addTrip(et);
 		
@@ -36,8 +35,8 @@ public class EasyPerson extends DifficultyPerson{
 
 	@Override
 	protected void planDeparture() {
-		double departureTime = 960; // earliest departure at 4PM
-		departureTime += new Random().nextInt(1200) / 10; //latest departure at 6PM
+		int departureTime = 57600; // earliest departure at 4PM
+		departureTime += new Random().nextInt(7200); //latest departure at 6PM
 		ElevatorTrip et = new ElevatorTrip(departureTime, getFloor(), 0);
 		addTrip(et);
 		

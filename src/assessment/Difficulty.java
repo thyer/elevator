@@ -2,6 +2,7 @@ package assessment;
 
 import people.EasyPerson;
 import people.HardPerson;
+import people.IPerson;
 import people.ModeratePerson;
 
 public enum Difficulty {
@@ -12,8 +13,8 @@ public enum Difficulty {
 	Legendary (1000, HardPerson.class);
 	
 	private final int count;
-	private final Class<?> personClass;
-	Difficulty(int count, Class<?> personClass){
+	private final Class<? extends IPerson> personClass;
+	Difficulty(int count, Class<? extends IPerson> personClass){
 		this.count = count;
 		this.personClass = personClass;
 	}
@@ -22,7 +23,7 @@ public enum Difficulty {
 		return this.count;
 	}
 	
-	public Class<?> getPersonClass(){
+	public Class<? extends IPerson> getPersonClass(){
 		return this.personClass;
 	}
 
