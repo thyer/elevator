@@ -5,11 +5,11 @@ import elevator.IElevatorManager;
 
 public class Assessment {
 	
-	public void main(String[] args){
+	public static void main(String[] args){
 		Difficulty[] rgd = Difficulty.values();
-		AssessmentFactory af;
+		PersonManagerFactory pmf = null;
 		IElevatorManager em = ElevatorManagerFactory.getElevatorManager();
-		if(args.length != 2 || rgd.length < 1){
+		if(args.length != 1 || rgd.length < 1){
 			System.out.println("Usage: include difficulty setting 1-5");
 		}
 		else if(em == null){
@@ -17,13 +17,16 @@ public class Assessment {
 		}
 		else{
 			try{
-				int i = Integer.parseInt(args[1]);
-				af = new AssessmentFactory(rgd[i + 1], em);
+				int i = Integer.parseInt(args[0]);
+				pmf = new PersonManagerFactory(rgd[i - 1], em);
 			}
-			catch(NumberFormatException e){
-				System.out.println("Please input a valid difficulty setting 1-" + d.length);
+			catch(Exception e){
+				System.out.println("Please input a valid difficulty setting 1-" + rgd.length);
+				e.printStackTrace();
 			}
 		}
+		pmf.getPersonManager().beginSimulation();
+		System.out.println("End of program");
 	}
 
 }
