@@ -36,7 +36,7 @@ public class PersonManager implements IPersonManager{
 		String time = new DecimalFormat("#.##").format(currentTime);
 		System.out.println("At time " + time + " there were " + trips.length + " trips");
 		for(IElevatorTrip r : trips){
-			elevatorManager.handleRequest(r);
+			elevatorManager.cycle(r);
 		}
 	}
 	
