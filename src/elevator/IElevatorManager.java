@@ -2,6 +2,8 @@ package elevator;
 
 import java.util.List;
 
+import assessment.Difficulty;
+
 public interface IElevatorManager{
 	
 	/**
@@ -12,12 +14,6 @@ public interface IElevatorManager{
 	public abstract void receiveRequests(List<Request> requests);
 
 	/**
-	 * Only called at the beginning of the assessment. Don't mess with this
-	 * @param elevators Your elevators
-	 */
-	public abstract void setElevators(IElevator[] elevators);
-
-	/**
 	 * Recommended steps:
 	 * 1. Check where each elevator is, what the active requests are
 	 * 2. For each elevator, either move up a floor, move down a floor, or open doors
@@ -25,5 +21,7 @@ public interface IElevatorManager{
 	 * 	off will leave and all requests from that floor will get on. 
 	 * */
 	public abstract void cycle();
+
+	public abstract List<IElevator> getElevators(Difficulty d);
 
 }

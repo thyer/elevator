@@ -1,23 +1,54 @@
 package elevator;
 
 public class Elevator implements IElevator{
+	
+	private static int nextNumber = 0;
+	private int number;
+	private int floor;
+	private int numPassengers;
+	private ElevatorState state;
+	
+	public Elevator (){
+		setNumber(nextNumber++);
+		setFloor(0);
+		setNumPassengers(0);
+		setState(ElevatorState.DoorsOpen);
+	}
 
 	@Override
 	public int getNumber() {
-		// TODO Auto-generated method stub
-		return 0;
+		return number;
 	}
 
 	@Override
 	public int getFloor() {
-		// TODO Auto-generated method stub
-		return 0;
+		return floor;
 	}
 
 	@Override
 	public int getNumPassengers() {
-		// TODO Auto-generated method stub
-		return 0;
+		return numPassengers;
+	}
+
+	@Override
+	public ElevatorState getState() {
+		return state;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
+	public void setFloor(int floor) {
+		this.floor = floor;
+	}
+
+	public void setNumPassengers(int numPassengers) {
+		this.numPassengers = numPassengers;
+	}
+
+	public void setState(ElevatorState state) {
+		this.state = state;
 	}
 
 }

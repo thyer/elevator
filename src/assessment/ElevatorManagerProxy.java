@@ -10,13 +10,12 @@ import elevator.Request;
 import people.IElevatorTrip;
 
 public class ElevatorManagerProxy {
-	private IElevator[] elevators;
+	private List<IElevator> elevators;
 	private IElevatorManager elevatorManager;
 	private List<Request> requests;
 	ElevatorManagerProxy(IElevatorManager em, Difficulty d){
 		elevatorManager = em;
-		elevators = new Elevator[d.getElevatorCount()];
-		elevatorManager.setElevators(elevators);
+		elevators = elevatorManager.getElevators(d);
 		requests = new ArrayList<Request>();
 	}
 
